@@ -2,6 +2,7 @@ import { z } from "zod";
 import {
     zCountries,
     zDate,
+    zDomain,
     zListPaging,
     zUsd,
 } from "../../../schema/common.ts";
@@ -26,7 +27,7 @@ export const zInvestorsQueryParams = z.object({
     investsIn: zCountries.optional().describe(
         "Countries of the companies they funded (OR).",
     ),
-    domain: z.string().min(3).optional().describe("Exact investor domain."),
+    domain: zDomain.optional().describe("Exact investor domain."),
     minRoundUsd: zUsd.optional().describe(
         "Joined at least one round of this size (whole USD).",
     ),
